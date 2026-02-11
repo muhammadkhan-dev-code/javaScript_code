@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Border Styles Demo</title>
+
+<style>
+
+p {
+  border-width: 4px;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Different border styles */
+
+p.dotted { border-style: dotted; }
+p.dashed { border-style: dashed; }
+p.solid  { border-style: solid; }
+p.double { border-style: double; }
+p.groove { border-style: groove; }
+p.ridge  { border-style: ridge; }
+p.inset  { border-style: inset; }
+p.outset { border-style: outset; }
+p.none   { border-style: none; }
+p.hidden { border-style: hidden; }
+
+/* Mix = top right bottom left */
+p.mix { border-style: dotted dashed solid double; }
+
+</style>
+</head>
+
+<body>
+
+<h2>Demonstration of CSS Border Styles</h2>
+
+<p class="dotted">Dotted Border</p>
+<p class="dashed">Dashed Border</p>
+<p class="solid">Solid Border</p>
+<p class="double">Double Border</p>
+<p class="groove">Groove Border</p>
+<p class="ridge">Ridge Border</p>
+<p class="inset">Inset Border</p>
+<p class="outset">Outset Border</p>
+<p class="none">No Border</p>
+<p class="hidden">Hidden Border</p>
+<p class="mix">Mixed Border (Top Dotted, Right Dashed, Bottom Solid, Left Double)</p>
+
+</body>
+</html>

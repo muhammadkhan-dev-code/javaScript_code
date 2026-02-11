@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HTML5 Features Demo</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        margin: 20px;
+      }
+      section {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      canvas {
+        border: 1px solid black;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>HTML5 Working Features Demo</h1>
+    </header>
+
+    <nav>
+      <a href="#">Home</a> |
+      <a href="#">About</a>
+    </nav>
+
+    <main>
+      <!-- SEMANTIC ELEMENTS -->
+      <section>
+        <h2>Semantic Elements</h2>
+        <article>
+          <p>This is an article inside a section.</p>
+        </article>
+        <aside>Aside content</aside>
+      </section>
+
+      <!-- FIGURE -->
+      <section>
+        <h2>Figure</h2>
+        <figure>
+          <img src="https://via.placeholder.com/150" />
+          <figcaption>Sample Image</figcaption>
+        </figure>
+      </section>
+
+      <!-- FORM INPUT TYPES -->
+      <section>
+        <h2>HTML5 Form Inputs</h2>
+
+        <form>
+          Email: <input type="email" /><br /><br />
+          Date: <input type="date" /><br /><br />
+          Color: <input type="color" /><br /><br />
+          Range: <input type="range" /><br /><br />
+          Number: <input type="number" /><br /><br />
+          Placeholder: <input placeholder="Type here" /><br /><br />
+          <button>Submit</button>
+        </form>
+      </section>
+
+      <!-- AUDIO VIDEO -->
+      <section>
+        <h2>Audio & Video</h2>
+
+        <audio controls>
+          <source src="horse.mp3" />
+        </audio>
+
+        <br /><br />
+
+        <video width="300" controls>
+          <source src="mov.mp4" />
+        </video>
+      </section>
+
+      <!-- CANVAS -->
+      <section>
+        <h2>Canvas</h2>
+
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+
+        <script>
+          let c = document.getElementById("myCanvas");
+          let ctx = c.getContext("2d");
+          ctx.fillStyle = "red";
+          ctx.fillRect(20, 20, 150, 50);
+        </script>
+      </section>
+
+      <!-- SVG -->
+      <section>
+        <h2>SVG</h2>
+
+        <svg width="200" height="100">
+          <circle cx="50" cy="50" r="40" fill="green" />
+        </svg>
+      </section>
+
+      <!-- LOCAL STORAGE -->
+      <section>
+        <h2>Local Storage</h2>
+
+        <button onclick="save()">Save Name</button>
+        <button onclick="load()">Load Name</button>
+
+        <script>
+          function save() {
+            localStorage.setItem("name", "Student");
+          }
+          function load() {
+            alert(localStorage.getItem("name"));
+          }
+        </script>
+      </section>
+
+      <!-- GEOLOCATION -->
+      <section>
+        <h2>Geolocation</h2>
+
+        <button onclick="getLocation()">Get Location</button>
+        <p id="loc"></p>
+
+        <script>
+          function getLocation() {
+            navigator.geolocation.getCurrentPosition(function (pos) {
+              document.getElementById("loc").innerHTML =
+                pos.coords.latitude + "," + pos.coords.longitude;
+            });
+          }
+        </script>
+      </section>
+
+      <!-- DRAG DROP -->
+      <section>
+        <h2>Drag & Drop</h2>
+
+        <div id="drag" draggable="true" class="box"></div>
+
+        <div
+          id="drop"
+          style="width: 120px; height: 120px; border: 2px dashed"
+          ondragover="event.preventDefault()"
+          ondrop="drop(event)"
+        ></div>
+
+        <script>
+          document.getElementById("drag").ondragstart = function (e) {
+            e.dataTransfer.setData("x", "drag");
+          };
+
+          function drop(e) {
+            let d = document.getElementById("drag");
+            e.target.appendChild(d);
+          }
+        </script>
+      </section>
+
+      <!-- CONTENTEDITABLE -->
+      <section>
+        <h2>Content Editable</h2>
+
+        <p contenteditable="true">Edit this text directly.</p>
+      </section>
+
+      <!-- DETAILS SUMMARY -->
+      <section>
+        <h2>Details / Summary</h2>
+
+        <details>
+          <summary>Click me</summary>
+          <p>Hidden content revealed.</p>
+        </details>
+      </section>
+
+      <!-- PROGRESS + METER -->
+      <section>
+        <h2>Progress & Meter</h2>
+
+        Progress:
+        <progress value="70" max="100"></progress>
+
+        <br /><br />
+
+        Meter:
+        <meter value="0.6"></meter>
+      </section>
+    </main>
+
+    <footer>
+      <p>HTML5 Demo Footer</p>
+    </footer>
+  </body>
+</html>
