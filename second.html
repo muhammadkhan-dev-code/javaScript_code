@@ -1,0 +1,53 @@
+<!--  Second Part of Querry Selector -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>Java</li>
+    </ul>
+
+    <script>
+      // function addLanguage(language) {
+      //   let listItem = document.createElement("li");
+      //   listItem.innerHTML = language;
+      //   document.querySelector(".language ").appendChild(listItem);
+      // }
+      // addLanguage("C++");
+      // addLanguage("TypeScript");
+
+      function addOptLang(language) {
+        let listItem = document.createElement("li");
+        listItem.appendChild(document.createTextNode(language));
+        document.querySelector('.language').appendChild(listItem);
+
+      }
+      addOptLang("C++");
+      addOptLang("TypeScript");
+
+     let sec_lang= document.querySelector("li:nth-child(2)")
+
+     const newLi= document.createElement("li");
+     newLi.textContent="Ruby";
+     sec_lang.replaceWith(newLi);
+
+
+      const first_lang=document.querySelector("li:first-child");
+      first_lang.outerHTML='<li>HTML</li>';
+
+
+
+     let lastLanguage= document.querySelector("li:last-child");
+     console.log(lastLanguage.innerHTML);
+     
+     lastLanguage.remove();
+    </script>
+  </body>
+</html>
