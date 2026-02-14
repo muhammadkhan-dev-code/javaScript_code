@@ -6,11 +6,11 @@ let lastResult = document.querySelector(".lastResult");
 let lowOrHi = document.querySelector(".lowOrHi");
 let remaining = document.querySelector(".remaining");
 let startOver = document.querySelector(".resultParas");
-let chances = 11;
+let chances = 10;
 
 let paragraph = document.createElement("p");
 let prevGuess = [];
-let numGuesses = 1;
+let numGuesses = 0;
 let playGame = true;
 
 if (playGame) {
@@ -28,14 +28,12 @@ function validateGuess(guess) {
   else{
     prevGuess.push(guess);
 
-    if(numGuesses===11){
-    displayGuess(guess)
-    displayMessage(`Game Over! Random number was ${radom_number}`);
-    endGame();
-    }else{
     displayGuess(guess);
-    checkGuess(guess);
-   
+    if (numGuesses >= chances) {
+      displayMessage(`Game Over! Random number was ${radom_number}`);
+      endGame();
+    } else {
+      checkGuess(guess);
     }
     
 
@@ -58,7 +56,7 @@ function displayGuess(guess) {
     userInput.value = "";
     guessSlot.innerHTML += ` ${guess} `;
     numGuesses++;
-    remaining.innerHTML = ` ${chances - numGuesses }`;
+    remaining.innerHTML = ` ${chances - numGuesses}`;
     
 }
 function displayMessage(msg) {
@@ -84,8 +82,8 @@ function newGame() {
     newButton.addEventListener("click",(ev)=>{
         radom_number=Math.floor(Math.random()*100+1)
         prevGuess = [];
-        numGuesses = 1;
-        remaining.innerHTML = ` ${chances - numGuesses }`;
+        numGuesses = 0;
+        remaining.innerHTML = ` ${chances - numGuesses}`;
         guessSlot.innerHTML = "";
         lowOrHi.innerHTML = "";
         userInput.removeAttribute("disabled");
