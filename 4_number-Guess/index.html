@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Number Guessing Game</h1>
+            <p>Try and guess a random number between 1 and 100.</p>
+            <p>You have 10 attempts to guess the right number.</p>
+        </header>
+
+        <main>
+            <form class="form" aria-describedby="rules">
+                <label for="guessField" id="guess">Guess a number</label>
+                <input type="text" id="guessField" class="guessField" inputmode="numeric" autocomplete="off" aria-label="Enter a number between 1 and 100">
+                <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+            </form>
+
+            <section class="resultParas" aria-live="polite">
+                <p>Previous Guesses: <span class="guesses"></span></p>
+                <p>Guesses Remaining: <span class="remaining">10</span></p>
+                <p class="lowOrHi"></p>
+            </section>
+        </main>
+
+        <section id="rules">
+            <p>Tip: Use strategy. Start near 50, then narrow the range.</p>
+            <p>Goal: Reach the number before attempts run out.</p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
