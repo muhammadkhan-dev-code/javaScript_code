@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="heading">Display Time here</h1>
+    <button id="start">Start</button>
+    <button id="stop">stop</button>
+    <script>
+      // const sayDate= function(str){
+      //     console.log(str, Date.now());
+
+      // }
+      // const intervalId = setInterval(sayDate,1000,"Hello Muhammad")
+      // clearInterval(intervalId)
+      let heading = document.querySelector("#heading");
+      let startBtn = document.querySelector("#start");
+      let stopBtn = document.querySelector("#stop");
+
+      let updateTime = () => {
+        let date = new Date();
+        heading.innerHTML = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+      };
+      let intervalId = null;
+
+      startBtn.addEventListener("click", () => {
+        if (intervalId !== null) {
+          clearInterval(intervalId);
+        } else {
+          intervalId = setInterval(updateTime, 1000);
+        }
+    
+      });
+      stopBtn.addEventListener("click",()=>{
+        clearInterval(intervalId)
+        intervalId = null;
+      })    
+    </script>
+  </body>
+</html>
