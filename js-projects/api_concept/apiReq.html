@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Card</title>
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            background: linear-gradient(135deg, #f6f1e7 0%, #e9eef5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-card {
+            width: min(520px, 92vw);
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(12, 23, 45, 0.15);
+            overflow: hidden;
+            border: 1px solid #e6e1d7;
+        }
+
+        .profile-header {
+            background: linear-gradient(120deg, #e6d3b3, #d9e0f2);
+            padding: 26px 28px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .profile-header img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 10px 20px rgba(12, 23, 45, 0.18);
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: #1d1b16;
+        }
+
+        .profile-header p {
+            margin: 6px 0 0;
+            color: #5a5f6b;
+            font-size: 0.95rem;
+        }
+
+        .profile-body {
+            padding: 22px 28px 28px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .stat {
+            background: #f6f2ea;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #2a2d35;
+        }
+
+        .stat span {
+            font-size: 0.85rem;
+            color: #6a6f7a;
+        }
+
+        .profile-meta {
+            display: grid;
+            gap: 8px;
+            color: #454b57;
+            font-size: 0.95rem;
+        }
+
+        .profile-meta span {
+            font-weight: 600;
+            color: #1d1b16;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card" id="profile-card">
+        <div class="profile-header">
+            <img id="profile-avatar" alt="Profile avatar" />
+            <div>
+                <h1 id="profile-name">Loading...</h1>
+                <p id="profile-username"></p>
+            </div>
+        </div>
+        <div class="profile-body">
+            <div class="stats">
+                <div class="stat">
+                    <strong id="profile-followers">0</strong>
+                    <span>Followers</span>
+                </div>
+                <div class="stat">
+                    <strong id="profile-following">0</strong>
+                    <span>Following</span>
+                </div>
+                <div class="stat">
+                    <strong id="profile-repos">0</strong>
+                    <span>Repos</span>
+                </div>
+            </div>
+            <div class="profile-meta">
+                <div><span>Bio:</span> <span id="profile-bio"></span></div>
+                <div><span>Location:</span> <span id="profile-location"></span></div>
+                <div><span>Company:</span> <span id="profile-company"></span></div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
