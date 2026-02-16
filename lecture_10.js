@@ -1,3 +1,64 @@
+/**
+ * Callback hell occurs when you have multiple nested callbacks, making code hard to read, debug, and maintain.
+What is a Callback?
+   A callback is a function passed as an argument to another function, to be executed later.
+
+*/
+//  Example of Callback Hell:
+
+// Simulating async operations with setTimeout
+console.log('Starting tasks...');
+
+setTimeout(function() {
+    console.log('Task 1 completed');
+    
+    setTimeout(function() {
+        console.log('Task 2 completed');
+        
+        setTimeout(function() {
+            console.log('Task 3 completed');
+            
+            setTimeout(function() {
+                console.log('Task 4 completed');
+                
+                setTimeout(function() {
+                    console.log('All tasks completed!');
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    }, 1000);
+}, 1000);
+
+  // solve Promises
+function task(name, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`${name} completed`);
+            resolve();
+        }, delay);
+    });
+}
+
+task('Task 1', 1000)
+    .then(() => task('Task 2', 1000))
+    .then(() => task('Task 3', 1000))
+    .then(() => console.log('All tasks completed!'))
+    .catch(error => console.error('Error:', error));
+
+//  Async/Await (Best Modern Approach
+async function executeTasks() {
+    try {
+        await task('Task 1', 1000);
+        await task('Task 2', 1000);
+        await task('Task 3', 1000);
+        console.log('All tasks completed!');
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+executeTasks();
+
 // ------------Promises  in  JavaScript----
 
 const promiseOne = new Promise((resolve, reject) => {
@@ -125,4 +186,5 @@ return res.json()
     
  }
  )
+
 
