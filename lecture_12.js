@@ -33,7 +33,6 @@ class Teacher extends User{
 }
 
 
-
 const masalaChai=  new User("Muhammad","mu@gmail.com","123")
 masalaChai.logMe()
 

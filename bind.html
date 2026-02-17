@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bind</title>
+  </head>
+  <body>
+    <button>Click Me</button>
+
+    <script>
+      class React {
+        constructor() {
+          ((this.lib = "REACT"), (this.server = "https://localhost:3000"));
+
+        //   The bind() method in JavaScript creates a new function with a specified this 
+        //   value and, optionally, pre-filled arguments
+          document
+            .querySelector("button")
+            .addEventListener("click", this.handleClick.bind(this));
+        }
+
+        handleClick() {
+          console.log("Btn clicked ");
+          console.log(`${this.server}`);
+        }
+      }
+
+      const app = new React();
+    </script>
+  </body>
+</html>
